@@ -3,7 +3,7 @@ const Joi = require("joi");
 const router = express.Router();
 const db = require("../db");
 const queryParamValidationMiddleware = require("../middleware/queryParamValidationMiddleware");
-const { getPagedProducts } = require("./product.repository");
+const { getPagedProducts, getProducts } = require("./product.repository");
 const productRepository = require("./product.repository");
 
 const queryParamsSchema = Joi.object().keys({
@@ -16,7 +16,8 @@ router.get(
   queryParamValidationMiddleware(queryParamsSchema),
   async (req, res, next) => {
     try {
-      const products = await getPagedProducts();
+      const { limit, page } = req.query;
+      const products = await getPagedProducts(limit, page);
 
       const responseResults = {
         products,
