@@ -43,7 +43,11 @@ module.exports = {
   },
   getPagedProducts: async (limit, page) => {
     try {
-      const result = await db.query(getPagedProductsSql, [limit, page]);
+      if (page <= 0 || !page) {
+        throw new Error("page must be greater than 0");
+      }
+      const offset = limit * (page - 1);
+      const result = await db.query(getPagedProductsSql, [limit, offset]);
       return result.rows;
     } catch (error) {
       throw Error(error);

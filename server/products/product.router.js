@@ -17,10 +17,19 @@ router.get(
   async (req, res, next) => {
     try {
       const { limit, page } = req.query;
-      const products = await getPagedProducts(limit, page);
+
+      const safeLimit = Boolean(limit) ? parseInt(limit) : 10;
+      const safePage = Boolean(parseInt(page)) ? parseInt(page) : 1;
+
+      const totalProducts = await getProducts();
+      const products = await getPagedProducts(safeLimit, safePage);
 
       const responseResults = {
         products,
+        currentPage: safePage,
+        itemsPerPage: safeLimit,
+        totalItems: totalProducts.length,
+        totalPages: Math.ceil(totalProducts.length / safeLimit),
       };
 
       return res.json(responseResults);
