@@ -7,7 +7,9 @@ import {
 
 const PaginationControls = ({ page, setPage, currentPage, totalPages }) => {
   const onPrev = () => {
-    setPage(page - 1);
+    if (page > 1) {
+      setPage(page - 1);
+    }
   };
   const onNext = () => {
     setPage(page + 1);
