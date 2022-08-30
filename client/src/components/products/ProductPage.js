@@ -9,7 +9,7 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(8);
+  const [page, setPage] = useState(1);
   const limit = 10;
 
   useEffect(() => {

@@ -12,14 +12,10 @@ const PaginationControls = ({
   totalPages = null,
 }) => {
   const onPrev = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
+    setPage(page - 1);
   };
   const onNext = () => {
-    if (page < totalPages) {
-      setPage(page + 1);
-    }
+    setPage(page + 1);
   };
   return (
     <div className={styles.container}>
