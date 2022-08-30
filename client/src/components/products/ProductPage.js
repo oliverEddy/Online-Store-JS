@@ -10,6 +10,8 @@ const ProductPage = () => {
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const limit = 10;
 
   useEffect(() => {
@@ -30,6 +32,8 @@ const ProductPage = () => {
         const data = await result.json();
         if (!abortController.signal.aborted) {
           setProducts(data.products);
+          setCurrentPage(data.currentPage);
+          setTotalPages(data.totalPages);
           console.log(data.products);
           //remove^^
         }
@@ -54,7 +58,12 @@ const ProductPage = () => {
       {loading && <Loader />}
       {error && <ErrorMessage message="Error fetching products" />}
       <ProductList products={products} className="main-content" />
-      <PaginationControls page={page} setPage={setPage} />
+      <PaginationControls
+        page={page}
+        setPage={setPage}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
     </main>
   );
 };

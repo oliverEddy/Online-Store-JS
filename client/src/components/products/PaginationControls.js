@@ -5,12 +5,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const PaginationControls = ({
-  page,
-  setPage,
-  currentPage = null,
-  totalPages = null,
-}) => {
+const PaginationControls = ({ page, setPage, currentPage, totalPages }) => {
   const onPrev = () => {
     setPage(page - 1);
   };
