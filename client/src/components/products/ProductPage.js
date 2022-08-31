@@ -11,7 +11,7 @@ const ProductPage = () => {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const limit = 10;
 
   useEffect(() => {
@@ -34,8 +34,6 @@ const ProductPage = () => {
           setProducts(data.products);
           setCurrentPage(data.currentPage);
           setTotalPages(data.totalPages);
-          console.log(data.products);
-          //remove^^
         }
       } catch (error) {
         if (!abortController.signal.aborted) {

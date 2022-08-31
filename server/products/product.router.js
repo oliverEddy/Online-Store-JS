@@ -3,7 +3,7 @@ const Joi = require("joi");
 const router = express.Router();
 const db = require("../db");
 const queryParamValidationMiddleware = require("../middleware/queryParamValidationMiddleware");
-const { getPagedProducts, getProducts } = require("./product.repository");
+const { getTotalProducts, getProducts } = require("./product.repository");
 const productRepository = require("./product.repository");
 
 const queryParamsSchema = Joi.object().keys({
@@ -22,7 +22,7 @@ router.get(
       const safePage = Boolean(parseInt(page)) ? parseInt(page) : 1;
 
       const totalProducts = await getProducts();
-      const products = await getPagedProducts(safeLimit, safePage);
+      const products = await getTotalProducts(safeLimit, safePage);
 
       const responseResults = {
         products,

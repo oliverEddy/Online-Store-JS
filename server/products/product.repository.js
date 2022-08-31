@@ -41,7 +41,7 @@ module.exports = {
       throw Error(error);
     }
   },
-  getPagedProducts: async (limit, page) => {
+  getTotalProducts: async (limit, page) => {
     try {
       if (page <= 0 || !page) {
         throw new Error("page must be greater than 0");
@@ -50,7 +50,7 @@ module.exports = {
       const result = await db.query(getPagedProductsSql, [limit, offset]);
       return result.rows;
     } catch (error) {
-      throw Error(error);
+      throw new Error(error);
     }
   },
 };
