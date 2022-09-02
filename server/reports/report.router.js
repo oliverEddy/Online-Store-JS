@@ -6,7 +6,7 @@ const {
   checkScopes,
 } = require("../middleware/authorizationMiddleware");
 
-router.get("/", checkScopes, async (req, res, next) => {
+router.get("/", checkJwt, checkScopes, async (req, res, next) => {
   try {
     const categoryReport = await reportRepository.getCategoryReport();
     const discountReport = await reportRepository.getDiscountReport();
