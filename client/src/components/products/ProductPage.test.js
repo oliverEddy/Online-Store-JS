@@ -28,19 +28,31 @@ describe("ProductPage", () => {
     expect(previousPageButton).toBeDisabled();
   });
 
-  test.todo(
-    "WHEN the user navigates to the second page of the Products page, THEN the previous/back button of the pagination control will be enabled"
-  );
-
-  test.todo(
-    "WHEN the user navigates to the last page of the Products page, THEN next button of the pagination control will be disabled"
-  );
-
-  test("WHEN a user goes to the Products page, THEN the current page will be highlighted in the pagination control", () => {
+  test("WHEN the user navigates to the second page of the Products page, THEN the previous/back button of the pagination control will be enabled", async () => {
     const pageDisplay = screen.queryByText(/page/i);
     expect(pageDisplay.textContent).toBe("Page 1 of 2");
-    const nextPageButton = screen.getByRole("button", { name: "Next page" });
+    const nextPageButton = screen.getByTestId("next-page");
     userEvent.click(nextPageButton);
+    await screen.findByText("Page 2 of 2");
+    const prevPageButton = screen.getByTestId("prev-page");
+    expect(prevPageButton).not.toBeDisabled();
+  });
+
+  test("WHEN the user navigates to the last page of the Products page, THEN next button of the pagination control will be disabled", async () => {
+    const pageDisplay = screen.queryByText(/page/i);
+    expect(pageDisplay.textContent).toBe("Page 1 of 2");
+    const nextPageButton = screen.getByTestId("next-page");
+    userEvent.click(nextPageButton);
+    await screen.findByText("Page 2 of 2");
+    expect(nextPageButton).toBeDisabled();
+  });
+
+  test("WHEN a user goes to the Products page, THEN the current page will be highlighted in the pagination control", async () => {
+    const pageDisplay = screen.queryByText(/page/i);
+    expect(pageDisplay.textContent).toBe("Page 1 of 2");
+    const nextPageButton = screen.getByTestId("next-page");
+    userEvent.click(nextPageButton);
+    await screen.findByText("Page 2 of 2");
     expect(pageDisplay.textContent).toBe("Page 2 of 2");
   });
 });
