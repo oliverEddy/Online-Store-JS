@@ -42,14 +42,14 @@ module.exports = {
   },
   getTotalProducts: async (limit, page) => {
     try {
-      if (page <= 0 || !page) {
+      if (page <= 0) {
         throw new Error("page must be greater than 0");
       }
       const offset = limit * (page - 1);
       const result = await db.query(getPagedProductsSql, [limit, offset]);
       return result.rows;
     } catch (error) {
-      throw new Error(error);
+      throw Error(error);
     }
   },
 };
