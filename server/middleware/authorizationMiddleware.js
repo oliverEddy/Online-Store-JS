@@ -5,7 +5,7 @@ const checkJwt = auth({
   issuerBaseURL: `https://dev-8sarvpl3.us.auth0.com/`,
 });
 
-const checkScopes = requiredScopes("");
+const checkScopes = requiredScopes("read:reports");
 
 module.exports = {
   checkJwt,
