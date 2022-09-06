@@ -34,7 +34,7 @@ paths:
         - schema:
             type: integer
           in: query
-          name: offset
+          name: page
           description: Allows you to omit a specified number of rows before the beginning of the result se
       responses:
         '200':
@@ -100,6 +100,12 @@ paths:
                 $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
           content:
             application/json:
               schema:
