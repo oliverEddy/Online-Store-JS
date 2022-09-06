@@ -89,11 +89,23 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/Reports'
+                properties:
+                  categoryReport:
+                    type: array
+                    items: {}
+                  categoryName:
+                    type: string
+                  totalProducts:
+                    type: integer
+                  discountedProducts:
+                    type: integer
+                  discountReport:
+                    type: array
+                    items: {}
+                  discountType:
+                    type: string
+                    nullable: true
         '401':
           description: Unauthorized
           content:
@@ -153,6 +165,29 @@ components:
       properties:
         message:
           type: string
+    Reports:
+      title: Reports
+      x-stoplight:
+        id: ixhl0zbfjr2y6
+      type: object
+      properties:
+        id:
+          type: string
+        categoryReport:
+          type: array
+          items: {}
+        categoryName:
+          type: string
+        totalProducts:
+          type: integer
+        discountedProducts:
+          type: integer
+        discountReport:
+          type: array
+          items: {}
+        discountType:
+          type: string
+          nullable: true
 tags:
   - name: products
     description: Everything about your Pets
