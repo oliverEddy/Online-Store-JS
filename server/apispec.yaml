@@ -89,23 +89,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Reports'
-                properties:
-                  categoryReport:
-                    type: array
-                    items: {}
-                  categoryName:
-                    type: string
-                  totalProducts:
-                    type: integer
-                  discountedProducts:
-                    type: integer
-                  discountReport:
-                    type: array
-                    items: {}
-                  discountType:
-                    type: string
-                    nullable: true
+                type: object
+                items:
+                  $ref: '#/components/schemas/Reports'
         '401':
           description: Unauthorized
           content:
@@ -168,26 +154,40 @@ components:
     Reports:
       title: Reports
       x-stoplight:
-        id: ixhl0zbfjr2y6
+        id: 5bv4ush8c27o2
       type: object
       properties:
-        id:
-          type: string
         categoryReport:
           type: array
-          items: {}
-        categoryName:
-          type: string
-        totalProducts:
-          type: integer
-        discountedProducts:
-          type: integer
+          items:
+            type: object
+            properties:
+              categoryName:
+                type: string
+              totalProducts:
+                type: integer
+              discountedProducts:
+                type: integer
+            required:
+              - categoryName
+              - totalProducts
+              - discountedProducts
         discountReport:
           type: array
-          items: {}
-        discountType:
-          type: string
-          nullable: true
+          items:
+            type: object
+            properties:
+              discountType:
+                type: string
+                enum:
+                  - percentage off
+                  - fixed amount off
+                nullable: true
+              totalProducts:
+                type: integer
+            required:
+              - discountType
+              - totalProducts
 tags:
   - name: products
     description: Everything about your Pets
