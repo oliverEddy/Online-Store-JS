@@ -37,7 +37,7 @@ describe("GIVEN that the GET /reports route exists", () => {
       .set("Accept", "application/json");
 
     expect(response.status).toBe(401);
-    // expect(response).toSatisfyApiSpec();
+    expect(response).toSatisfyApiSpec();
   });
 
   test("WHEN the user is authenticated but does not have the right permissions THEN return status 403", async () => {
@@ -57,7 +57,7 @@ describe("GIVEN that the GET /reports route exists", () => {
       .set("Accept", "application/json");
 
     expect(response.status).toBe(403);
-    // expect(response).toSatisfyApiSpec();
+    expect(response).toSatisfyApiSpec();
   });
 
   test("WHEN the user is authenticated THEN return status 200", async () => {
@@ -78,6 +78,6 @@ describe("GIVEN that the GET /reports route exists", () => {
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual(expectedResponseData);
-    //  expect(response).toSatisfyApiSpec();
+    expect(response).toSatisfyApiSpec();
   });
 });
