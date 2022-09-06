@@ -5,15 +5,13 @@ info:
   version: '1.0'
   title: Welcome to the Cat Catoure's API Spec!
   description: This defines the API spec for the Cat Catoure's API
-  "contact": {
-      "name": "Oliver Eddy",
-      "url": "https://exsample.com",
-      "email": "oliver.eddy@developersinstitute.co.nz"
-  }
-  "license": {
-      "name": "Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
-      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
-    }
+  contact:
+    name: Oliver Eddy
+    url: 'https://exsample.com'
+    email: oliver.eddy@developersinstitute.co.nz
+  license:
+    name: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+    url: 'https://creativecommons.org/licenses/by-sa/4.0/'
 servers:
   - url: 'http://localhost:5001/api'
     description: Development server
@@ -33,6 +31,11 @@ paths:
           name: limit
           description: The number of products to return
           required: false
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: Allows you to omit a specified number of rows before the beginning of the result se
       responses:
         '200':
           description: OK
@@ -87,6 +90,10 @@ paths:
             application/json:
               schema:
                 type: object
+            application/xml:
+              schema:
+                type: object
+                properties: {}
         '401':
           description: Unauthorized
           content:
