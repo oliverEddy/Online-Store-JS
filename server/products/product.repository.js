@@ -29,7 +29,6 @@ LEFT JOIN product_image pi ON p.product_image_id = pi.id
 ORDER BY
 p.id
 LIMIT $1 OFFSET $2
-
 `;
 
 module.exports = {
@@ -43,9 +42,6 @@ module.exports = {
   },
   getTotalProducts: async (limit, page) => {
     try {
-      if (page <= 0) {
-        throw new Error("page must be greater than 0");
-      }
       const offset = limit * (page - 1);
       const result = await db.query(getPagedProductsSql, [limit, offset]);
       return result.rows;
