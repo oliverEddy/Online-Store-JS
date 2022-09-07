@@ -1,10 +1,19 @@
-openapi: "3.0.2"
+openapi: 3.0.2
+x-stoplight:
+  id: 5wkgh33th22t2
 info:
-  version: "1.0"
-  title: Welcome to the Products API!
-  description: This API allows user to handle products
+  version: '1.0'
+  title: Welcome to the Cat Catoure's API Spec!
+  description: This defines the API spec for the Cat Catoure's API
+  contact:
+    name: Oliver Eddy
+    url: 'https://exsample.com'
+    email: oliver.eddy@developersinstitute.co.nz
+  license:
+    name: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+    url: 'https://creativecommons.org/licenses/by-sa/4.0/'
 servers:
-  - url: "http://localhost:5001/api"
+  - url: 'http://localhost:5001/api'
     description: Development server
 paths:
   /products:
@@ -22,8 +31,13 @@ paths:
           name: limit
           description: The number of products to return
           required: false
+        - schema:
+            type: integer
+          in: query
+          name: page
+          description: Allows you to omit a specified number of rows before the beginning of the result se
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -33,7 +47,7 @@ paths:
                   products:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Product"
+                      $ref: '#/components/schemas/Product'
                   currentPage:
                     type: integer
                   totalPages:
@@ -48,18 +62,18 @@ paths:
                   - totalPages
                   - itemsPerPage
                   - totalItems
-        400:
+        '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
-        500:
+                $ref: '#/components/schemas/Error'
+        '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
   /reports:
     get:
       summary: Returns a list of reports
@@ -70,12 +84,32 @@ paths:
       tags:
         - reports
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: object
+                items:
+                  $ref: '#/components/schemas/Reports'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   securitySchemes:
     bearerAuth:
@@ -116,12 +150,51 @@ components:
         - categoryName
         - imageName
         - imageDescription
-        - discountValue
-        - discountType
+      
     Error:
       type: object
       properties:
         message:
           type: string
+    Reports:
+      title: Reports
+      x-stoplight:
+        id: 5bv4ush8c27o2
+      type: object
+      properties:
+        categoryReport:
+          type: array
+          items:
+            type: object
+            properties:
+              categoryName:
+                type: string
+              totalProducts:
+                type: integer
+              discountedProducts:
+                type: integer
+            required:
+              - categoryName
+              - totalProducts
+              - discountedProducts
+        discountReport:
+          type: array
+          items:
+            type: object
+            properties:
+              discountType:
+                type: string
+                enum:
+                  - percentage off
+                  - fixed amount off
+                nullable: true
+              totalProducts:
+                type: integer
+            required:
+              - discountType
+              - totalProducts
 tags:
   - name: products
+    description: Everything about your Pets
+  - name: reports
+    description: Access to Petstore orders
