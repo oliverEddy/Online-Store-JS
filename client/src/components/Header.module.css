@@ -7,6 +7,9 @@
 .navButton {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  margin: 0 10px;
 }
 .menu {
   display: flex;
@@ -16,6 +19,7 @@
 }
 .rightLinkItems {
   list-style-type: none;
+  font-size: 1.1rem;
 }
 
 .link {
@@ -30,10 +34,16 @@
 }
 
 .header {
-  display: flex;
+  display: grid;
   width: 100%;
   justify-content: center;
   margin-top: 1rem;
+  background-color: #f47174;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 .header .logo {
   font-size: 3rem;

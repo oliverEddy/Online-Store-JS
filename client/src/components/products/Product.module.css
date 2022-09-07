@@ -50,3 +50,9 @@
   box-sizing: border-box;
   width: 90%;
 }
+@media only screen and (min-width: 40rem) {
+  .product {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+  }
+}

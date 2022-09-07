@@ -35,11 +35,13 @@ const Product = ({
             />
           )}
         </div>
-        <h3 className={styles.name}>{name}</h3>
-        <p className={styles.price}> Price {price}</p>
-        <p data-testid="product-description" className={styles.description}>
-          {description}
-        </p>
+        <div className={styles.hopeFullyNot}>
+          <h3 className={styles.name}>{name}</h3>
+          <p className={styles.price}> Price {price}</p>
+          <p data-testid="product-description" className={styles.description}>
+            {description}
+          </p>
+        </div>
         <button className={styles.button}>Add to Cart</button>
       </div>
     </li>
