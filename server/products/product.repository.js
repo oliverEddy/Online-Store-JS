@@ -29,6 +29,7 @@ LEFT JOIN product_image pi ON p.product_image_id = pi.id
 ORDER BY
 p.id
 LIMIT $1 OFFSET $2
+
 `;
 
 module.exports = {
