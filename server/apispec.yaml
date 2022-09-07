@@ -150,8 +150,7 @@ components:
         - categoryName
         - imageName
         - imageDescription
-        - discountValue
-        - discountType
+      
     Error:
       type: object
       properties:
