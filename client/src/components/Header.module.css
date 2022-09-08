@@ -32,6 +32,7 @@
   display: grid;
   justify-content: center;
   background-color: #f47174;
+  box-shadow: 0 0 20px rgb(244, 113, 116, 0.55);
   border: none;
   border-radius: 0.5rem;
   color: white;
