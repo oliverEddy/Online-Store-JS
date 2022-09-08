@@ -4,18 +4,17 @@
   display: flex;
   justify-content: space-between;
 }
-.navButton {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
+
 .menu {
   display: flex;
 }
 .rightLinks {
   display: flex;
+  align-items: center;
 }
 .rightLinkItems {
   list-style-type: none;
+  font-size: 1.1rem;
 }
 
 .link {
@@ -30,12 +29,38 @@
 }
 
 .header {
-  display: flex;
-  width: 100%;
+  display: grid;
   justify-content: center;
-  margin-top: 1rem;
+  background-color: #f47174;
+  box-shadow: 0 0 20px rgb(244, 113, 116, 0.55);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1.5rem;
 }
 .header .logo {
   font-size: 3rem;
   margin: 2rem 0rem;
+}
+@media only screen and (min-width: 40rem) {
+  .nav {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .rightLinkItems {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .nav {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .rightLinkItems {
+    font-size: 1.3rem;
+  }
 }

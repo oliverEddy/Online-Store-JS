@@ -12,19 +12,19 @@ const Product = ({
 }) => {
   return (
     <li className={styles.product}>
-      <div className="card">
+      <div className={styles.card}>
         <div>
           {imageName ? (
             <img
               src={`./img/${imageName}`}
               alt={imageDescription}
-              className="product-image"
+              className={styles.productImage}
             />
           ) : (
             <img
               src="./img/cat-photo-default.jpg"
               alt="Default product cat"
-              className="product-image"
+              className={styles.productImage}
             />
           )}
           {discountValue && discountType && (
@@ -35,9 +35,13 @@ const Product = ({
             />
           )}
         </div>
-        <h3>{name}</h3>
-        <p>Price {price}</p>
-        <p data-testid="product-description">{description}</p>
+        <div className={styles.hopeFullyNot}>
+          <h3 className={styles.name}>{name}</h3>
+          <p className={styles.price}> Price {price}</p>
+          <p data-testid="product-description" className={styles.description}>
+            {description}
+          </p>
+        </div>
         <button className={styles.button}>Add to Cart</button>
       </div>
     </li>
