@@ -1,0 +1,20 @@
+.logButton {
+  cursor: pointer;
+  border: 0;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  width: 6rem;
+  padding: 0.625rem 0;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  transition: 0.4s;
+  color: #0ea68c;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid #0ea68c;
+}
+.logButton:hover {
+  color: white;
+
+  box-shadow: 0 0 20px rgb(4, 170, 109, 0.9);
+  background-color: rgb(4, 170, 109);
+}

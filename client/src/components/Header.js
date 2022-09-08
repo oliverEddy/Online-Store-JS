@@ -31,7 +31,7 @@ const Header = () => {
                 Dashboard
               </NavLink>
             </li>
-            <li className={`${styles.navButton} ${styles.rightLinkItems}`}>
+            <li className={` ${styles.rightLinkItems}`}>
               <LoginButton />
             </li>
           </ul>

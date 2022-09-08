@@ -11,6 +11,7 @@
   position: relative;
   list-style: none;
   display: grid;
+  justify-items: center;
 }
 .badge {
   position: absolute;
@@ -36,6 +37,7 @@
   color: #5a5858;
 }
 .button {
+  cursor: pointer;
   background-color: #f44336;
   opacity: 0.92;
   transition: 0.3s;
@@ -51,4 +53,10 @@
   justify-self: center;
   box-sizing: border-box;
   width: 90%;
+}
+.button:hover {
+  color: #f44336;
+  border: 1.5px solid #f44336;
+  box-shadow: 0 0 20px rgb(244, 67, 54, 0.5);
+  background-color: white;
 }
