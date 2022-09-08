@@ -10,6 +10,7 @@
 .product {
   position: relative;
   list-style: none;
+  display: grid;
 }
 .badge {
   position: absolute;
