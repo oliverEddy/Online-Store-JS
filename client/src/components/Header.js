@@ -38,7 +38,7 @@ const Header = () => {
         </nav>
       </header>
       <header className={`${styles.header} main-layout section-padding`}>
-        <h1 className="logo">Cat Couture</h1>
+        <h1 className="logo">Cat Couture 𓃠</h1>
       </header>
     </>
   );
