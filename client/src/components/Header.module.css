@@ -35,17 +35,22 @@
 
 .header {
   display: grid;
-  width: 100%;
   justify-content: center;
-  margin-top: 1rem;
   background-color: #f47174;
   border: none;
   border-radius: 0.5rem;
   color: white;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1.5rem;
 }
 .header .logo {
   font-size: 3rem;
   margin: 2rem 0rem;
+}
+@media only screen and (min-width: 40rem) {
+}
+@media only screen and (min-width: 62rem) {
 }

@@ -1,9 +1,9 @@
 import Product from "./Product";
 import styles from "./ProductList.module.css";
 
-const ProductList = ({ products, className }) => {
+const ProductList = ({ products }) => {
   return (
-    <ul className={className}>
+    <ul className={styles.container}>
       {products.map((product) => (
         <Product
           key={product.id}
