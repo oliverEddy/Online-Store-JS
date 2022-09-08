@@ -51,6 +51,20 @@
   margin: 2rem 0rem;
 }
 @media only screen and (min-width: 40rem) {
+  .nav {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .rightLinkItems {
+    font-size: 1.25rem;
+  }
 }
 @media only screen and (min-width: 62rem) {
+  .nav {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .rightLinkItems {
+    font-size: 1.3rem;
+  }
 }
