@@ -15,6 +15,8 @@ info:
 servers:
   - url: 'http://localhost:5001/api'
     description: Development server
+  - url: 'https://cat-catoure-server.onrender.com'
+    description: Production server
 paths:
   /products:
     get:
