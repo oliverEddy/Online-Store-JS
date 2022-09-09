@@ -1,7 +1,6 @@
 const express = require("express");
 const Joi = require("joi");
 const router = express.Router();
-const db = require("../db");
 const queryParamValidationMiddleware = require("../middleware/queryParamValidationMiddleware");
 const { getTotalProducts, getProducts } = require("./product.repository");
 

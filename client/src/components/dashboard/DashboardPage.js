@@ -12,7 +12,6 @@ const DashboardPage = () => {
   const [categoryReports, setCategoryReport] = useState([]);
   const [discountReports, setDiscountReport] = useState([]);
   const { getAccessTokenSilently } = useAuth0();
-  const [product, setProduct] = useState("");
 
   useEffect(() => {
     // We use AbortController (https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
